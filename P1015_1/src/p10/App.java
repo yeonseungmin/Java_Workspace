@@ -1,11 +1,10 @@
-package p1;
+package p10;
 
 public class App {
     public static void main(String[] args) {
-        Student s1 = new Student();
+        Pppp p = new Pppp();
+
+    
     }
 }
 
-class Student {
-    
-}

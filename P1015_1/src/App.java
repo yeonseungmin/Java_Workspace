@@ -1,5 +1,22 @@
+import java.util.Scanner;
+
 public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.next();
+        String result = "";
+        
+        for(int i=0; i<a.length(); i++){
+            char c = a.charAt(i);
+            if(Character.isUpperCase(c)){
+                result += Character.toLowerCase(c);
+            }else if(Character.isLowerCase(c)){
+                result += Character.toUpperCase(c);
+            }else{
+                result += c;
+            }
+        }
     }
+}
 }
