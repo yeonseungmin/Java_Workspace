@@ -8,6 +8,7 @@ public class App {
 
     }
 }
+
  class StudentDto{
     private String name;
     private int age;
