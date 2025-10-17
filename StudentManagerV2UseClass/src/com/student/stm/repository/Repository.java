@@ -4,6 +4,8 @@ import com.student.stm.dto.StudentDto;
 
 // 컴포넌트
 // 역확 : 저장소 - 데이터 입출력 담당
+// 이 부분은 사실상 DB 쿼리로 변경 예정
+// ***********배열 .... 저장소***
 public class Repository {
     private StudentDto[] list = new StudentDto[5];
     private int count=0;

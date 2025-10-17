@@ -2,9 +2,18 @@ package com.student.stm.controller;
 
 import com.student.stm.service.Service;
 import com.student.stm.util.IoManager;
+        // // 1. 데이터 구조(Dto)
+        //    2. Controller  
+        // 연습은 다 짜고 하나하나 분리하는게 편하다.
+        // StudentDto studentDto = new StudentDto();
+        // studentDto.setName("한조"); // ( public 용 ) s1.name = "한조"
+        // String aaa = studentDto.getName(); //(public 용) String aaa = s1.name;
+
 // 컴포넌트 : 로직이 위주가 되는 클래스
 // 현재 : 전체 흐름을 담당한다.
 // 스프링에서는 사용자 입출력 담당
+
+//***** 흐름만 컨트롤 한다 
 public class Controller {
     private Service service = new Service();
     public void run(){

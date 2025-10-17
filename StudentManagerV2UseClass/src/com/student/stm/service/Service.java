@@ -6,6 +6,8 @@ import com.student.stm.util.IoManager;
 
 //컴포넌트
 //역할 : 비즈니스로직(코어로직) 담당
+//실제 액션**************************알고리즘
+//(출력문은 따로 만드는게 좋다)
 public class Service {
     private Repository repository = new Repository();
 
