@@ -1,18 +1,19 @@
 package com.student.stm.controller;
 
+import com.student.stm.service.Service;
 import com.student.stm.util.IoManager;
-
+// 컴포넌트 : 로직이 위주가 되는 클래스
 // 현재 : 전체 흐름을 담당한다.
-    // 스프링에서는 사용자 입출력 담당
+// 스프링에서는 사용자 입출력 담당
 public class Controller {
-
+    private Service service = new Service();
     public void run(){
         welcome();
 
         while(true){
             showMenu();
             String command = selectCommand();
-            
+
             if(isExitCommand(command)){ // 탈출 코드
                 break;
             }
@@ -53,19 +54,18 @@ public class Controller {
     }
 
     private void processCommand(String command){
-
             if(command.equals("1")){
-
+                service.addStudent();
             }else if(command.equals("2")){
-
+                service.listStudent();
             }else if(command.equals("3")){
-
+                service.searchStudent();
             }else if(command.equals("4")){
-
+                service.removeStudent();
             }else if(command.equals("5")){
                 
             }else if(command.equals("6")){
-
+                service.statistize();
             }else {
                 IoManager.print("잘못된 명령을 입력하셨습니다.");
                 IoManager.print("다시 입력해주세요");
