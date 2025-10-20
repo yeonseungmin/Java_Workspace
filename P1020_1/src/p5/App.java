@@ -10,10 +10,9 @@ public class App {
         ref1.a1 = 10;
         BBB ref2 = new BBB();
         ref2.b1 = 5;
-        ref2.a1 =5;
-        System.out.println(ref1.a1);
-        System.out.println(ref2.a1);
-
+        ref2.testA();
+        CCC ref3 = new CCC();
+        ref3.a1=0;
     }
 }
 
@@ -21,9 +20,15 @@ public class App {
 class AAA {
     int a1;
     int a2;
+    void testA(){}
 }
 
 class BBB extends AAA {
     int b1;
     int b2;
+    
+}
+
+class CCC extends BBB{
+
 }
