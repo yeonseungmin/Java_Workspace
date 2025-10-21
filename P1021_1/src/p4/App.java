@@ -51,6 +51,8 @@ class ServiceContainer{
     public ServiceContainer(){
         map.put("1", new StudentAddService());
         map.put("2", new StudentListService());
+
+        map.put("4", new StudentRemoveService());
     }
     public Service getService(String command){
         return map.get(command);
