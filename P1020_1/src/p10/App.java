@@ -14,26 +14,33 @@ public class App {
         unitList[4] = new Marine();
         unitList[5] = new Marine();
 
+        //아래가 핵심 상속 - 다형성 - 오버라이딩 포함
         for(Unit unit : unitList){
             unit.move();
         }
+        for(Unit unit : unitList){
+            unit.attack();
+        }
+        for(Unit unit : unitList){
+            unit.stop();
+        }
+
     }
 }
 // 유닛은 개념
-class Unit{
+abstract class Unit{     // 추상클래스 다른 클래스에 상속을 위한 클래스
     int hp;
     int ap;
     int speed;
 
-    void move(){
-        System.out.println(speed +" 만큼 이동");
-    }
+    abstract void move();
+        // System.out.println(speed +" 만큼 이동");
     
     void attack(){
         System.out.println(speed +" 만큼 공격");
     }
     
-    void stop(){
+    final  void stop(){
         System.out.println(speed +" 멈춤");
     }
 }
