@@ -1,5 +1,6 @@
 package com.accountbook.acb.service;
 
+
 import com.accountbook.acb.dto.AccountBookDto;
 import com.accountbook.acb.repository.Repository;
 import com.accountbook.acb.util.IoManager;
@@ -43,7 +44,7 @@ public class Service {
         ListAccountBook();
         String removeDate = IoManager.input("삭제할 날짜 >" );
         int removeMoney = Integer.parseInt(IoManager.input("삭제할 금액 > "));
-        int count =repository.RemoveAccountBook(removeDate,removeMoney);
+        int count =repository.removeAccountBook(removeDate,removeMoney);
         
         
         IoManager.print("총" + count + "명의 정보가 삭제되었습니다.");
@@ -62,6 +63,33 @@ public class Service {
     
     public void SortedMoney(){
         IoManager.print("----------------금액 내림차순 검색 ----------------");
-        
+        AccountBookDto[] sortedDescList = repository.descMoney();
+        for(AccountBookDto accountBookDto : sortedDescList){  //list의 크기에 따라 반복 
+            String text = "";
+            text += " 유형: " + accountBookDto.getType();
+            text += ", |금액 : " + accountBookDto.getMoney();
+            text += ", |카테고리 : " + accountBookDto.getCategory();
+            text += ", |메모 : " + accountBookDto.getNote();
+            text += ", |날짜 : " + accountBookDto.getDate();
+
+            IoManager.print(text);
+        }
+    }
+
+    public void findKeyWordOfNote(){
+        IoManager.print("----------------메모 키워드로 검색 ----------------");
+        ListAccountBook();
+        String keyWord = IoManager.input("검색할 키워드 > ");
+        AccountBookDto[] findKeyWordOfNote = repository.findKeyWordOfNote(keyWord);
+        for(AccountBookDto accountBookDto : findKeyWordOfNote){  //list의 크기에 따라 반복 
+            String text = "";
+            text += " 유형: " + accountBookDto.getType();
+            text += ", |금액 : " + accountBookDto.getMoney();
+            text += ", |카테고리 : " + accountBookDto.getCategory();
+            text += ", |메모 : " + accountBookDto.getNote();
+            text += ", |날짜 : " + accountBookDto.getDate();
+
+            IoManager.print(text);
+        }
     }
 }

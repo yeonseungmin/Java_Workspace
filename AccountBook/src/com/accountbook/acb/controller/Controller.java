@@ -36,6 +36,7 @@ public class Controller {
             IoManager.print(" 3. 가계부 삭제 ");
             IoManager.print(" 4. 카테고리별 합계 ");
             IoManager.print(" 5. 금액 내림차순 보기");
+            IoManager.print(" 6. 메모 키워드로 검색");
             IoManager.print(" 0. 프로그램 종료  ");
     }
     private String selectCommand(){
@@ -58,7 +59,7 @@ public class Controller {
             }else if(command.equals("5")){
                 service.SortedMoney();
             }else if(command.equals("6")){
-                
+                service.findKeyWordOfNote();
             }else {
                 IoManager.print("잘못된 명령을 입력하셨습니다.");
                 IoManager.print("다시 입력해주세요");

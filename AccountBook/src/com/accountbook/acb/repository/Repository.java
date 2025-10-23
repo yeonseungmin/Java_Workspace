@@ -1,5 +1,11 @@
 package com.accountbook.acb.repository;
 
+import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
 import com.accountbook.acb.dto.AccountBookDto;
 import com.accountbook.acb.util.IoManager;
 
@@ -31,7 +37,7 @@ private AccountBookDto[] list = new AccountBookDto[5];
         return newList;
     }
     // 삭제
-    public int RemoveAccountBook(String removeDate,int removeMoney){
+    public int removeAccountBook(String removeDate,int removeMoney){
 
         int removeCount =0;
         
@@ -62,5 +68,42 @@ private AccountBookDto[] list = new AccountBookDto[5];
     }
 
     // 금액 내림차순 보기
-    
+    public AccountBookDto[] descMoney(){
+        AccountBookDto[] descMoney = new AccountBookDto[count];
+
+        for (int i=0; i<count; i++){
+            String type = list[i].getType();
+            int money = list[i].getMoney();
+            String category = list[i].getCategory();
+            String note = list[i].getNote();
+            String date = list[i].getDate();
+
+            AccountBookDto AccountBookDto = new AccountBookDto(type,money,category,note,date);
+            descMoney[i] = AccountBookDto;
+            
+        }
+        Arrays.sort(descMoney,(before, after) -> Integer.compare(before.getMoney(), after.getMoney()));
+
+        return descMoney;
+    }
+    // 메모 키워드로 검색하기
+    // public AccountBookDto[] findKeyWordOfNote(String keyWord){
+    //     AccountBookDto[] findKeyWordOfNote = new AccountBookDto[count];
+    //     for(int i =0; i< count; i++){
+    //      if(list[i].getNote().equals(keyWord)){
+    //         String type = list[i].getType();
+    //         int money = list[i].getMoney();
+    //         String category = list[i].getCategory();
+    //         String note = list[i].getNote();
+    //         String date = list[i].getDate();
+
+    //         AccountBookDto AccountBookDto = new AccountBookDto(type,money,category,note,date);
+    //         findKeyWordOfNote[i] = AccountBookDto;      
+    //         }
+    //         else{
+    //             return list;
+    //         }
+    //      }
+    //     return findKeyWordOfNote;
+    // }
 }
