@@ -76,20 +76,20 @@ public class Service {
         }
     }
 
-    public void findKeyWordOfNote(){
-        IoManager.print("----------------메모 키워드로 검색 ----------------");
-        ListAccountBook();
-        String keyWord = IoManager.input("검색할 키워드 > ");
-        AccountBookDto[] findKeyWordOfNote = repository.findKeyWordOfNote(keyWord);
-        for(AccountBookDto accountBookDto : findKeyWordOfNote){  //list의 크기에 따라 반복 
-            String text = "";
-            text += " 유형: " + accountBookDto.getType();
-            text += ", |금액 : " + accountBookDto.getMoney();
-            text += ", |카테고리 : " + accountBookDto.getCategory();
-            text += ", |메모 : " + accountBookDto.getNote();
-            text += ", |날짜 : " + accountBookDto.getDate();
+    // public void findKeyWordOfNote(){
+    //     IoManager.print("----------------메모 키워드로 검색 ----------------");
+    //     ListAccountBook();
+    //     String keyWord = IoManager.input("검색할 키워드 > ");
+    //     AccountBookDto[] findKeyWordOfNote = repository.findKeyWordOfNote(keyWord);
+    //     for(AccountBookDto accountBookDto : findKeyWordOfNote){  //list의 크기에 따라 반복 
+    //         String text = "";
+    //         text += " 유형: " + accountBookDto.getType();
+    //         text += ", |금액 : " + accountBookDto.getMoney();
+    //         text += ", |카테고리 : " + accountBookDto.getCategory();
+    //         text += ", |메모 : " + accountBookDto.getNote();
+    //         text += ", |날짜 : " + accountBookDto.getDate();
 
-            IoManager.print(text);
-        }
-    }
+    //         IoManager.print(text);
+    //     }
+    // }
 }
