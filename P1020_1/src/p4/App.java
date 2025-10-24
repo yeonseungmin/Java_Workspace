@@ -21,6 +21,7 @@ enum Day {
     // SUNDAY,
     // MONDAY,
     // TUESDAY,
+    //enum사용법 
 
     SUNDAY(0),
     MONDAY(1);
