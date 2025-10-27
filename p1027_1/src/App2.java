@@ -10,10 +10,15 @@ public class App2 {
 class Solution {
     public int[] solution(int N, int[] stages) {
         int[] answer = {};
-        int[] test = new int[stages.length];
+        int count =1;
+        int[] test = new int[N];
         for(int i =0; i<stages.length; i++){
-            int count = 0;
-            ,
+            test[stages[i]] += 1;  
+        }
+        
+
+        for(int e : test){
+            System.out.println(e);
         }
         return answer;
     }
