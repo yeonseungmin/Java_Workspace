@@ -1,9 +1,12 @@
-package StudentManagementApp;
+package StudentManager.menu;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import StudentManager.menultiem.MenuItem;
+
+// Composite 패턴
 public class Menu implements MenuItem {
     private String name;
     private List<MenuItem> items = new ArrayList<>();

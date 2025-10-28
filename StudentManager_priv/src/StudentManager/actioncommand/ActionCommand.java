@@ -1,4 +1,6 @@
-package StudentManagementApp;
+package StudentManager.actioncommand;
+
+import StudentManager.menultiem.MenuItem;
 
 public class ActionCommand implements MenuItem {
     private String name;
@@ -18,5 +20,6 @@ public class ActionCommand implements MenuItem {
     public void execute() {
         System.out.println(">> 기능 실행: " + name);
         action.run(); // 실제 로직 실행
+        
     }
 }

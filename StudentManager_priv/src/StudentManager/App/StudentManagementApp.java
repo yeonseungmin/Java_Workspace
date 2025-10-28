@@ -1,16 +1,48 @@
-package StudentManagementApp;
+package StudentManager.App;
+
+import StudentManager.actioncommand.ActionCommand;
+import StudentManager.menu.Menu;
+import StudentManager.repository.StudentRepository;
+
+
+import java.util.Scanner;
+
 public class StudentManagementApp {
+
     
     
     // 이 클래스에서 학생 데이터를 관리한다고 가정
     // 예시를 위해 간단한 로직만 구현합니다.
+    private static Scanner scanner = new Scanner(System.in);
+    private static StudentRepository repository = new StudentRepository();
+
+    // 학생 등록
     private static void registerStudent() {
+        boolean check = true;
         System.out.println("--- [학생 등록 기능] : 이름, 학번 등을 입력받아 저장");
+        System.out.print("이름 입력 > ");
+        String name = scanner.nextLine();
+        System.out.print("학번 입력 > ");
+        while(check){
+            if(!scanner.hasNextInt()){  // 학번을 0을 연속으로 넣을시 0 하나만 출력..문제..
+                System.out.println("[숫자가 아닙니다.]");
+                System.out.print("학번을 입력해주세요 >");
+                scanner.nextLine();
+            }else{
+                check=false;
+            }
+        }
+        int studentId = Integer.parseInt(scanner.nextLine());
+        repository.save(name, studentId);
+
         // 실제 학생 객체 생성 및 리스트에 추가 로직 구현
     }
 
     private static void searchStudent() {
         System.out.println("--- [학생 정보 검색 기능] : 검색 조건에 맞는 학생 정보 출력");
+        System.out.print("검색할 이름 입력 > ");
+        String name = scanner.nextLine();
+        repository.findStudent(name);
     }
 
     private static void inputGrade() {

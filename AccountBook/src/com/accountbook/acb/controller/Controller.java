@@ -59,7 +59,7 @@ public class Controller {
             }else if(command.equals("5")){
                 service.SortedMoney();
             }else if(command.equals("6")){
-                service.findKeyWordOfNote();
+                // service.findKeyWordOfNote();
             }else {
                 IoManager.print("잘못된 명령을 입력하셨습니다.");
                 IoManager.print("다시 입력해주세요");
