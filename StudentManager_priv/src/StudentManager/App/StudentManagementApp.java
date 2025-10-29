@@ -22,27 +22,27 @@ public class StudentManagementApp {
         System.out.println("--- [학생 등록 기능] : 이름, 학번 등을 입력받아 저장");
         System.out.print("이름 입력 > ");
         String name = scanner.nextLine();
-        System.out.print("학번 입력 > ");
         while(check){
-            if(!scanner.hasNextInt()){  // 학번을 0을 연속으로 넣을시 0 하나만 출력..문제..
-                System.out.println("[숫자가 아닙니다.]");
-                System.out.print("학번을 입력해주세요 >");
-                scanner.nextLine();
-            }else{
-                check=false;
-            }
+        try {
+            System.out.print("학번 입력 > ");
+            int studentId = Integer.parseInt(scanner.nextLine()); 
+            repository.save(name, studentId); 
+            check = false;
+        } catch (NumberFormatException e) {
+            // TODO: handle exception
+            System.out.println("[숫자가 아닙니다.]");
         }
-        int studentId = Integer.parseInt(scanner.nextLine());
-        repository.save(name, studentId);
-
+        }
         // 실제 학생 객체 생성 및 리스트에 추가 로직 구현
     }
 
     private static void searchStudent() {
         System.out.println("--- [학생 정보 검색 기능] : 검색 조건에 맞는 학생 정보 출력");
         System.out.print("검색할 이름 입력 > ");
+        
         String name = scanner.nextLine();
         repository.findStudent(name);
+    
     }
 
     private static void inputGrade() {
