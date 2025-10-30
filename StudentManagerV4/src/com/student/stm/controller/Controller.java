@@ -17,6 +17,8 @@ import com.student.stm.util.IoManager;
 public class Controller {
     private Service service = new Service();
     public void run(){
+
+        service.loadFromFile();
         welcome();
 
         while(true){
@@ -29,6 +31,7 @@ public class Controller {
             processCommand(command);
             pause();
         }
+        service.saveToFile();
         bye();
     }
 
@@ -39,6 +42,7 @@ public class Controller {
         IoManager.print("*******************************");
     }
     private void bye(){
+        
         IoManager.print("프로그램이 종료됩니다.");
     }
 
@@ -83,4 +87,5 @@ public class Controller {
     private void pause(){
         IoManager.pause();
     }
+    
 }

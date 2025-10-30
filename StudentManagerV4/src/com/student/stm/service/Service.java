@@ -63,6 +63,12 @@ public class Service {
     IoManager.print("==========================================");
    }
 
+   public void saveToFile(){
+        repository.saveToFile();
+   }
+   public void loadFromFile(){
+         repository.loadFromFile();
+   }
 }
 
 
