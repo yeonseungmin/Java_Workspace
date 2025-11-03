@@ -1,0 +1,45 @@
+package client;
+
+import java.io.DataOutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("클라이언트 시작");
+
+        System.out.print("닉네임 입력 > ");
+        String nickName = scanner.nextLine();
+
+        System.out.println("서버와 접속을 시도 ..");
+        try (Socket socket = new Socket("172.30.1.71",7777)){
+            System.out.println("서버 접속 성공..");
+
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+
+            //프로토콜에 따라서 처음에는 무조건 닉네임을 전달(문자열)
+            dos.writeUTF(nickName);
+
+            ClientReceiveMessageThread clientReceiveMessageThread = new ClientReceiveMessageThread(socket);
+            clientReceiveMessageThread.start();
+
+            while (true) {
+                System.out.println("메세지 입력 (0. 종료)> ");
+                String message = scanner.nextLine();
+                dos.writeUTF(message);
+                if(message.equals("0")){
+                    break;
+                }
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+
+
+        System.out.println("클라이언트 종료");
+        scanner.close();
+    }
+}
