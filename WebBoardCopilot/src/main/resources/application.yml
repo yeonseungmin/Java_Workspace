@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: webboard
+  datasource:
+    url: jdbc:mariadb://localhost:3306/test?useUnicode=true&characterEncoding=utf8mb4&serverTimezone=Asia/Seoul
+    username: root
+    password: "!@test1234"
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  thymeleaf:
+    mode: HTML
+    cache: false
+    encoding: UTF-8
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+      data-locations: classpath:data.sql
+      schema-locations: classpath:schema.sql
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.webboard.model
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: VARCHAR
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  error:
+    include-message: always
+    include-binding-errors: always
+
+logging:
+  level:
+    root: INFO
+    '[org.springframework.web]': DEBUG
+    '[com.webboard]': DEBUG
+    '[org.mybatis]': DEBUG
+    '[org.springframework.boot.autoconfigure]': DEBUG
+
+debug: true

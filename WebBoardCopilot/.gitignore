@@ -1,0 +1,43 @@
+# Gradle
+.gradle
+build/
+out/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+.flattened-pom.xml
+
+# Local properties
+local.properties
+
+# Log files
+*.log
+logs/
+
+# Runtime
+*.class
+*.jar
+*.war
+*.ear
+
+# Test
+.junit
+.testcontainers
